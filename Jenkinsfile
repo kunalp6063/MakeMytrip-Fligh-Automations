@@ -10,13 +10,13 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'npm install' // Windows system के लिए
+                bat 'npm install'
             }
         }
 
         stage('Run Playwright Tests') {
             steps {
-                bat 'npx playwright test' // Windows में
+                bat 'npx playwright test'
             }
         }
     }
