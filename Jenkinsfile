@@ -1,12 +1,8 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs "node16"
-    }
-
     stages {
-        stage('Clone Repo') {
+        stage('Checkout Code') {
             steps {
                 git 'https://github.com/kunalp6063/MakeMytrip-Fligh-Automations'
             }
@@ -20,7 +16,6 @@ pipeline {
 
         stage('Run Playwright Tests') {
             steps {
-                sh 'npx playwright install --with-deps'
                 sh 'npx playwright test'
             }
         }
