@@ -6,13 +6,13 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
+        stage('Clone Repo') {
             steps {
                 git 'https://github.com/kunalp6063/MakeMytrip-Fligh-Automations'
             }
         }
 
-        stage('Install dependencies') {
+        stage('Install Dependencies') {
             steps {
                 sh 'npm install'
             }
@@ -20,6 +20,7 @@ pipeline {
 
         stage('Run Playwright Tests') {
             steps {
+                sh 'npx playwright install --with-deps'
                 sh 'npx playwright test'
             }
         }
