@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'node16' // Jenkins → Manage Jenkins → Global Tool Configuration → NodeJS tool name
-    }
-
     stages {
         stage('Install Dependencies') {
             steps {
