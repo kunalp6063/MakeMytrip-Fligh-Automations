@@ -1,14 +1,24 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs 'node16' // Jenkins → Manage Jenkins → Global Tool Configuration → NodeJS name
+    }
+
     stages {
         stage('Install Dependencies') {
             steps {
-                bat 'npm install'
+                bat 'npm ci'
             }
         }
 
-        stage('Run Playwright Tests') {
+        stage('Install Browsers') {
+            steps {
+                bat 'npx playwright install --with-deps'
+            }
+        }
+
+        stage('Run Tests') {
             steps {
                 bat 'npx playwright test'
             }
