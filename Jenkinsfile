@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'node16'
+        nodejs 'node16' // Make sure this matches the name in Jenkins global tool config
     }
 
     stages {
-        stage('Check Node & NPM Version') {
+        stage('Verify Node & NPM') {
             steps {
                 bat 'node -v'
                 bat 'npm -v'
