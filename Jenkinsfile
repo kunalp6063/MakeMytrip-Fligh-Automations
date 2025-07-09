@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'node16' // ✔️ ये same होना चाहिए जैसा तुमने Jenkins में configure किया है
+        nodejs 'node16'  // Make sure Jenkins > Manage Jenkins > Global Tool Configuration में ये नाम same हो
     }
 
     stages {
-        stage('Check Node & NPM') {
+        stage('Check Node Version') {
             steps {
                 bat 'node -v'
                 bat 'npm -v'
